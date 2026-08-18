@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Ku - Biodata</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d47a1, #000000);
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, #000000, #0d47a1);
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #64b5f6;
+        }
+
+        /* LAYOUT */
+        .container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 230px;
+            background-color: white;
+            padding: 25px 15px;
+        }
+
+        .sidebar h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px;
+            margin-bottom: 8px;
+            color: #444;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .sidebar a:hover,
+        .sidebar .active {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        /* CONTENT */
+        main {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .judul {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .judul h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .judul p {
+            color: #dbeafe;
+        }
+
+        /* BIODATA */
+        .biodata {
+            max-width: 850px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        /* FOTO PROFIL */
+        .foto-profil {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .foto-profil img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #1976d2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        .biodata h2 {
+            color: #0d47a1;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* DATA GRID */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .data {
+            padding: 18px;
+            background-color: #f5f9ff;
+            border-left: 4px solid #1976d2;
+            border-radius: 8px;
+        }
+
+        .data span {
+            display: block;
+            font-size: 13px;
+            color: #607d8b;
+            margin-bottom: 6px;
+        }
+
+        .data strong {
+            color: #0d47a1;
+            font-size: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            main {
+                padding: 25px 20px;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .foto-profil img {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            🌐 Website Ku
+        </div>
+
+        <nav>
+            <a href="index.html">Beranda</a>
+            <a href="biodata.html">Biodata</a>
+            <a href="tentang.html">Tentang Diriku</a>
+        </nav>
+
+    </header>
+
+
+    <!-- CONTAINER -->
+    <div class="container">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <h3>Menu Navigasi</h3>
+
+            <a href="index.html">
+                🏠 HOME
+            </a>
+
+            <a href="biodata.html" class="active">
+                👤 BIODATA
+            </a>
+
+            <a href="tentang.html">
+                ✨ TENTANG DIRIKU
+            </a>
+
+        </aside>
+
+
+        <!-- KONTEN UTAMA -->
+        <main>
+
+            <div class="judul">
+
+                <h1>👤 Biodata Diri</h1>
+
+                <p>
+                    Kenali aku lebih dekat melalui biodata berikut.
+                </p>
+
+            </div>
+
+
+            <!-- BIODATA -->
+            <div class="biodata">
+
+                <!-- FOTO -->
+                <div class="foto-profil">
+                    <img src="gani.jpg" alt="Foto Ganita Hayu Uno">
+                </div>
+
+
+                <h2>✨ Data Diri</h2>
+
+
+                <!-- DATA -->
+                <div class="data-grid">
+
+                    <div class="data">
+                        <span>Nama</span>
+                        <strong>Ganita Hayu Uno</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Kelas</span>
+                        <strong>XII TJKT 1</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Sekolah</span>
+                        <strong>SMKN 9 Surakarta</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Agama</span>
+                        <strong>Islam</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Tempat, Tanggal Lahir</span>
+                        <strong>Karanganyar, 30 April 2009</strong>
+                    </div>
+
+                    <div class="data">
+                        <span>Alamat</span>
+                        <strong>Banukan</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        &copy; 2026 Ganita Hayu Uno | Website Ku
+    </footer>
+
+</body>
+</html>

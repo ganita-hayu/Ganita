@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Ku - Ganita Hayu Uno</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d47a1, #000000);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #000000, #0d47a1);
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #64b5f6;
+        }
+
+        .container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+        }
+
+        .sidebar {
+            width: 230px;
+            background-color: white;
+            padding: 25px 15px;
+        }
+
+        .sidebar h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px;
+            margin-bottom: 8px;
+            color: #444;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .sidebar a:hover,
+        .sidebar .active {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        main {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .welcome {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .welcome h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #dbeafe;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+
+        .card p,
+        .card li {
+            color: #607d8b;
+            line-height: 1.6;
+        }
+
+        .card ul {
+            padding-left: 20px;
+        }
+
+        .motto {
+            margin-top: 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1565c0, #000000);
+            color: white;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .motto p {
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            main {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌐 Website Ku</div>
+
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="tentang.html">Tentang Diriku</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h3>Menu Navigasi</h3>
+
+        <a href="index.html" class="active">🏠 HOME</a>
+        <a href="biodata.html">👤 BIODATA</a>
+        <a href="tentang.html">✨ TENTANG DIRIKU</a>
+    </aside>
+
+    <main>
+
+        <div class="welcome">
+            <h1>Hai, Aku Ganita! 👋</h1>
+            <p>
+                Selamat datang di website pribadiku.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🍳</div>
+                <h2>Hobi Memasak</h2>
+                <p>
+                    Aku suka memasak dan mencoba berbagai macam resep.
+                    Memasak menjadi kegiatan yang menyenangkan karena
+                    aku bisa mencoba membuat makanan baru.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎬</div>
+                <h2>Hobi Nonton Drama</h2>
+                <p>
+                    Aku juga suka menonton drama untuk mengisi waktu luang
+                    dan bersantai setelah melakukan berbagai kegiatan.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📺</div>
+                <h2>Rekomendasi Drama</h2>
+                <ul>
+                    <li>Queen of Tears</li>
+                    <li>Lovely Runner</li>
+                    <li>True Beauty</li>
+                    <li>Twenty Five Twenty One</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="icon">🍜</div>
+                <h2>Rekomendasi Masakan</h2>
+                <ul>
+                    <li>Ayam Geprek</li>
+                    <li>Nasi Goreng</li>
+                    <li>Spaghetti</li>
+                    <li>Mie Goreng</li>
+                    <li>Brownies</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="motto">
+            <h2>✨ Moto Hidup</h2>
+            <p>
+                "Lakukan yang terbaik, nikmati prosesnya,
+                dan tetap jadi diri sendiri."
+            </p>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    &copy; 2026 Ganita Hayu Uno | Website Ku
+</footer>
+
+</body>
+</html>
