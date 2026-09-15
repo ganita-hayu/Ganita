@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Website Ku - Galeri</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0d47a1, #000000);
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(90deg, #000000, #0d47a1);
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #64b5f6;
+        }
+
+        /* CONTAINER */
+        .container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 230px;
+            background-color: white;
+            padding: 25px 15px;
+        }
+
+        .sidebar h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 12px;
+            margin-bottom: 8px;
+            color: #444;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        .sidebar a:hover,
+        .sidebar .active {
+            background-color: #e3f2fd;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        /* MAIN */
+        main {
+            flex: 1;
+            padding: 40px;
+        }
+
+        main h1 {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        /* GALERI */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item p {
+            text-align: center;
+            padding: 14px;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        /* JUDUL KATEGORI */
+        .category {
+            color: white;
+            margin: 30px 0 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000000;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            main {
+                padding: 25px 20px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        🌐 Website Ku
+    </div>
+
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="tentang.html">Tentang Diriku</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="game.html">🎮 Game</a>
+    </nav>
+
+</header>
+
+
+
+<!-- CONTAINER -->
+
+<div class="container">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <h3>Menu Navigasi</h3>
+
+        <a href="index.html">
+            🏠 HOME
+        </a>
+
+        <a href="biodata.html">
+            👤 BIODATA
+        </a>
+
+        <a href="tentang.html">
+            ✨ TENTANG DIRIKU
+        </a>
+
+        <a href="galeri.html" class="active">
+            📸 GALERI
+        </a>
+
+        <a href="game.html">🎮 Game</a>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <h1>
+            📸 Galeri Foto Saya
+        </h1>
+
+
+
+        <!-- DRAMA -->
+
+        <h2 class="category">
+            🎬 Drama Favorit
+        </h2>
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+
+                <img src="gambar1.jpg" alt="Queen of Tears">
+
+                <p>
+                    🎬 Queen of Tears
+                </p>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img src="gambar2.jpeg" alt="Weak Hero">
+
+                <p>
+                    🎬 Weak Hero
+                </p>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img src="gambar3.jpg" alt="True Beauty">
+
+                <p>
+                    🎬 True Beauty
+                </p>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img src="gambar4.jpg" alt="Twenty Five Twenty One">
+
+                <p>
+                    🎬 Twenty Five Twenty One
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MAKANAN -->
+
+        <h2 class="category">
+            🍜 Makanan Kesukaan
+        </h2>
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+
+                <img src="makanan1.jpg" alt="Fudgy Brownies">
+
+                <p>
+                    🍫 Fudgy Brownies
+                </p>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img src="makanan2.jpg" alt="Mie Nyemek">
+
+                <p>
+                    🍳 Mie Nyemek
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MINUMAN -->
+
+        <h2 class="category">
+            🥤 Minuman Kesukaan
+        </h2>
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+
+                <img src="minuman1.jpg" alt="Matcha">
+
+                <p>
+                    🍵 Matcha
+                </p>
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img src="minuman2.jpeg" alt="Es Americano">
+
+                <p>
+                    🧊 Es Americano
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    &copy; 2026 Ganita Hayu Uno | Website Ku
+
+</footer>
+
+
+</body>
+</html>

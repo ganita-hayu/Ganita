@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Puzzle - Ganita Hayu Uno</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0d47a1, #000);
+    color: white;
+}
+
+header {
+    background: linear-gradient(90deg, #000, #0d47a1);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+nav a:hover {
+    color: #64b5f6;
+}
+
+.container {
+    display: flex;
+    min-height: calc(100vh - 120px);
+}
+
+.sidebar {
+    width: 230px;
+    background: white;
+    padding: 25px 15px;
+}
+
+.sidebar h3 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px;
+    margin-bottom: 8px;
+    color: #444;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #e3f2fd;
+    color: #0d47a1;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+    padding: 35px 20px;
+}
+
+.judul {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.judul h1 {
+    margin-bottom: 8px;
+}
+
+.judul p {
+    color: #dbeafe;
+}
+
+.game {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.info div {
+    background: #e3f2fd;
+    color: #0d47a1;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#board {
+    width: min(90vw, 440px);
+    height: min(90vw, 440px);
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    padding: 6px;
+    background: #0d47a1;
+    border-radius: 14px;
+}
+
+.cell {
+    border: 0;
+    border-radius: 10px;
+    background: white;
+    font-size: clamp(25px, 8vw, 42px);
+    cursor: pointer;
+    transition: .15s;
+}
+
+.cell:hover {
+    background: #e3f2fd;
+    transform: scale(1.05);
+}
+
+.cell.selected {
+    background: #64b5f6;
+    transform: scale(.85);
+    box-shadow: 0 0 0 4px #0d47a1;
+}
+
+#message {
+    color: #0d47a1;
+    font-weight: bold;
+    min-height: 25px;
+    margin: 15px 0 10px;
+}
+
+#restart {
+    border: 0;
+    background: #0d47a1;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#restart:hover {
+    background: #1565c0;
+}
+
+footer {
+    background: #000;
+    text-align: center;
+    padding: 15px;
+}
+
+@media(max-width:768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 6px;
+        font-size: 13px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    main {
+        padding: 25px 10px;
+    }
+
+    .game {
+        padding: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🌐 Website Ku
+    </div>
+
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="tentang.html">Tentang Diriku</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="game.html">🎮 Game</a>
+    </nav>
+
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+
+        <h3>Menu Navigasi</h3>
+
+        <a href="index.html">🏠 HOME</a>
+        <a href="biodata.html">👤 BIODATA</a>
+        <a href="tentang.html">✨ TENTANG DIRIKU</a>
+        <a href="galeri.html">📸 GALERI</a>
+        <a href="game.html" class="active">🎮 GAME PUZZLE</a>
+
+    </aside>
+
+    <main>
+
+        <div class="judul">
+
+            <h1>🍔 Food Puzzle 🍕</h1>
+
+            <p>
+                Tukarkan makanan yang bersebelahan!
+            </p>
+
+        </div>
+
+        <div class="game">
+
+            <div class="info">
+
+                <div>
+                    ⭐ Skor:
+                    <span id="score">0</span>
+                </div>
+
+                <div>
+                    ⏱️
+                    <span id="time">60</span>
+                </div>
+
+            </div>
+
+            <div id="board"></div>
+
+            <div id="message">
+                Pilih satu makanan!
+            </div>
+
+            <button id="restart">
+                🔄 Mulai Ulang
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<footer>
+    &copy; 2026 Ganita Hayu Uno | Website Ku
+</footer>
+
+
+<script>
+
+const SIZE = 6;
+
+const makanan = [
+    "🍔",
+    "🍕",
+    "🍩",
+    "🍟",
+    "🌮",
+    "🍣"
+];
+
+let papan = [];
+let pilihan = null;
+let skor = 0;
+let waktu = 60;
+let gameSelesai = false;
+let timer;
+
+
+const board = document.getElementById("board");
+const score = document.getElementById("score");
+const time = document.getElementById("time");
+const message = document.getElementById("message");
+const restart = document.getElementById("restart");
+
+
+function acakMakanan() {
+
+    return makanan[
+        Math.floor(Math.random() * makanan.length)
+    ];
+
+}
+
+
+function buatPapan() {
+
+    papan = [];
+
+    for (let r = 0; r < SIZE; r++) {
+
+        papan[r] = [];
+
+        for (let c = 0; c < SIZE; c++) {
+
+            papan[r][c] = acakMakanan();
+
+        }
+
+    }
+
+    gambarPapan();
+
+}
+
+
+function gambarPapan() {
+
+    board.innerHTML = "";
+
+    for (let r = 0; r < SIZE; r++) {
+
+        for (let c = 0; c < SIZE; c++) {
+
+            const tombol =
+                document.createElement("button");
+
+            tombol.className = "cell";
+
+            tombol.textContent = papan[r][c];
+
+
+            if (
+                pilihan &&
+                pilihan.r === r &&
+                pilihan.c === c
+            ) {
+
+                tombol.classList.add("selected");
+
+            }
+
+
+            tombol.onclick = function() {
+
+                pilih(r, c);
+
+            };
+
+
+            board.appendChild(tombol);
+
+        }
+
+    }
+
+}
+
+
+function pilih(r, c) {
+
+    if (gameSelesai) {
+        return;
+    }
+
+
+    if (pilihan === null) {
+
+        pilihan = {
+            r: r,
+            c: c
+        };
+
+        message.textContent =
+            "Sekarang pilih makanan di sebelahnya!";
+
+        gambarPapan();
+
+        return;
+
+    }
+
+
+    const jarakBaris =
+        Math.abs(pilihan.r - r);
+
+    const jarakKolom =
+        Math.abs(pilihan.c - c);
+
+
+    if (jarakBaris + jarakKolom !== 1) {
+
+        pilihan = {
+            r: r,
+            c: c
+        };
+
+        message.textContent =
+            "⚠️ Pilih makanan yang bersebelahan!";
+
+        gambarPapan();
+
+        return;
+
+    }
+
+
+    // Tukar makanan
+
+    const temp =
+        papan[pilihan.r][pilihan.c];
+
+    papan[pilihan.r][pilihan.c] =
+        papan[r][c];
+
+    papan[r][c] = temp;
+
+
+    pilihan = null;
+
+
+    const cocok = cariCocokan();
+
+
+    if (cocok.length === 0) {
+
+        // Tidak cocok, kembalikan
+
+        const temp2 =
+            papan[r][c];
+
+        papan[r][c] =
+            papan[pilihanBarisSebelumnya(r,c)];
+
+        papan[pilihanBarisSebelumnya(r,c)] =
+            temp2;
+
+        /*
+        Karena pilihan sudah dikosongkan,
+        kita gunakan cara aman di bawah:
+        */
+
+        message.textContent =
+            "❌ Belum cocok! Coba kombinasi lain.";
+
+    } else {
+
+        hapusCocokan(cocok);
+
+    }
+
+
+    gambarPapan();
+
+}
+
+
+function cariCocokan() {
+
+    const hasil = [];
+
+
+    // Horizontal
+
+    for (let r = 0; r < SIZE; r++) {
+
+        for (let c = 0; c < SIZE - 2; c++) {
+
+            if (
+                papan[r][c] === papan[r][c + 1] &&
+                papan[r][c] === papan[r][c + 2]
+            ) {
+
+                hasil.push([r,c]);
+                hasil.push([r,c+1]);
+                hasil.push([r,c+2]);
+
+            }
+
+        }
+
+    }
+
+
+    // Vertikal
+
+    for (let r = 0; r < SIZE - 2; r++) {
+
+        for (let c = 0; c < SIZE; c++) {
+
+            if (
+                papan[r][c] === papan[r+1][c] &&
+                papan[r][c] === papan[r+2][c]
+            ) {
+
+                hasil.push([r,c]);
+                hasil.push([r+1,c]);
+                hasil.push([r+2,c]);
+
+            }
+
+        }
+
+    }
+
+
+    // Hilangkan duplikat
+
+    const unik = [];
+
+    hasil.forEach(function(item) {
+
+        const ada = unik.some(function(x) {
+
+            return x[0] === item[0] &&
+                   x[1] === item[1];
+
+        });
+
+        if (!ada) {
+            unik.push(item);
+        }
+
+    });
+
+
+    return unik;
+
+}
+
+
+function hapusCocokan(cocok) {
+
+    skor += cocok.length * 10;
+
+    score.textContent = skor;
+
+    message.textContent =
+        "🎉 Cocok! +" + (cocok.length * 10) + " poin!";
+
+
+    cocok.forEach(function(posisi) {
+
+        papan[posisi[0]][posisi[1]] =
+            acakMakanan();
+
+    });
+
+}
+
+
+function mulaiTimer() {
+
+    clearInterval(timer);
+
+    timer = setInterval(function() {
+
+        if (gameSelesai) {
+            return;
+        }
+
+
+        waktu--;
+
+        time.textContent = waktu;
+
+
+        if (waktu <= 0) {
+
+            gameSelesai = true;
+
+            clearInterval(timer);
+
+            message.textContent =
+                "⏰ Waktu habis! Skor kamu: " + skor;
+
+        }
+
+    }, 1000);
+
+}
+
+
+function mulaiGame() {
+
+    clearInterval(timer);
+
+    skor = 0;
+
+    waktu = 60;
+
+    gameSelesai = false;
+
+    pilihan = null;
+
+    score.textContent = "0";
+
+    time.textContent = "60";
+
+    message.textContent =
+        "Pilih satu makanan!";
+
+    buatPapan();
+
+    mulaiTimer();
+
+}
+
+
+restart.onclick = mulaiGame;
+
+
+// Mulai otomatis
+
+mulaiGame();
+
+</script>
+
+</body>
+</html>
